@@ -16,7 +16,7 @@ const Demande = (props) => {
      userID:nombre_jrs.value,
 
    }).then(res=>{
-    // props.history.push("/Homepage");
+    props.history.push("/Homepage");
   })
   .catch(error=>console.log(error))
   }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import Sidebar from "./components/sidebar/sidebar";
+import Sidebar from "./Admin/sidebar/sidebar";
+
 import Navbar from "./components/Navbar";
 import userList from "./Admin/userlist/UserList"
 import EditUser from "./Admin/user/EditUser";
@@ -15,7 +16,7 @@ import Profile from "./pages/users/Profile";
 import Register from "./pages/users/Register";
 import Homepage from "./pages/Homepage";
 import Demande from "./pages/demande/Demande";
-
+import parseJwt from "./services/parseJWT";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -26,6 +27,10 @@ function App() {
   const history = useHistory();
   const [token, setToken] = useState(null);
   const [error, setError] = useState(false);
+  const [socket, setSocket] = useState(null);
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
+  const [role, setRole] = useState(null);
   useEffect(() => {
     axios.get("http://localhost:3005/users")
       .then(res => {
@@ -60,14 +65,22 @@ function App() {
     }).then(res => {
       console.log(res)
       localStorage.setItem("token", res.data.token)
+      localStorage.setItem("role", parseJwt(res.data.token).role)
+      setRole(parseJwt(res.data.token));
+      console.log(parseJwt(res.data.token).role)
       setToken(res.data.token)
-      history.push("/Account")
+      if(role === "admin")
+       history.push("/Account")
+      else if (role === "user"){
+        history.push("/cordonnee")
+      } 
     })
       .catch(error => {
         setError(true);
         console.log(error.msg)
       })
   }
+     
   useEffect(() => {
     axios.get("http://localhost:3005/users")
       .then(res => {
@@ -77,15 +90,17 @@ function App() {
   }, [])
 
   return (
+    <Router>
 
-    <div className="container-fluid">
-
-      <Navbar logout={logout}
+<Navbar logout={logout}
         token={token}
       />
+    <div className="container">
+
+  
 
       <Switch>
-
+        
         {
           token ?
             <>
@@ -94,30 +109,33 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/demande" component={Demande} />
               <Route exact path="/" component={Homepage} />
-
+              
             </>
             :
             <>
             <>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={() => <Login login={login} error={error} ></Login>} />
-
+         
             </>
             
-        
-        
-          <Route exact path="/userList" component={userList} />
-          <Route exact path="/EditUser" component={EditUser} />
-          <Route exact path="/HistoriquedemandeList" component={HistoriquedemandeList} />
-          <Route exact path="/Cordonnee" component={Cordonnee} />
-
+            <Sidebar/>
+               <Route exact path="/cordonnee" component={Cordonnee} />
+               <Route exact path="/HistoriquedemandeList" component={HistoriquedemandeList} />
+                <Route exact path="/userList" component={userList} />
+                <Route exact path="/EditUser" component={EditUser} />
+                
+               
+                 
+                
+               
           </>
           
         }
 
       </Switch>
     </div>
-
+    </Router>
   );
 }
 

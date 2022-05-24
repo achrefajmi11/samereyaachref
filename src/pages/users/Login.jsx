@@ -4,35 +4,37 @@ const Login = ({login,error}) => {
   
 
     return (
-    <div className="main">
+    <div className="app">
       <h1 style={{color:"red"}}>{error ?  " nom d'utilisateur ou mot de passe invalide " : null }</h1>
       <form className="sign"  align="center" onSubmit={login}>
       
       
-          <legend className="sign">Se connecter</legend>
-          <div className="un" align="center" >
+          <legend className="contact-us">Se connecter</legend>
+          <div className="contact-us" align="center" >
             <label htmlFor="matricule"></label>
             <input 
               type="INT"
               name="matricule"
-              className="pass"  align="center"
+
+
+               className="form-control"  align="center"
               placeholder="matricule"
               id="matricule"
               
             />
           </div>
-          <div className="un"  align="center">
+          <div className="contact-us"  align="center">
             <label htmlFor="password"></label>
             <input
               type="password"
               name="password"
-              className="pass" align="center"
+              className="form-control" align="center"
               id="password"
               placeholder="Password"
             />
           </div>
 
-          <button type="submit" className="submit" align="center">
+          <button type="btn-outline-primary" className="submit" align="center">
             Se connecter
           </button>
          

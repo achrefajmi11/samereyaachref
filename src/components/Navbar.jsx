@@ -40,6 +40,7 @@ const Navbar = ({ logout, token }) => {
                   S'enregistrer
                 </NavLink>
               </li>
+         
             </>
 
             : <>

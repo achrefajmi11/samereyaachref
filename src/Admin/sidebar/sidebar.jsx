@@ -1,3 +1,4 @@
+import React from 'react';
 import "./sidebar.css";
 import {
   LineStyle,
@@ -14,9 +15,10 @@ import {
   Report,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+
 export default function Sidebar() {
   return (
-   
+
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
@@ -35,7 +37,7 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Mon Compte</h3>
           <ul className="sidebarList">
 
-            <Link to="/cordonee" className="link">
+            <Link to="/cordonnee" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
                 Mes cordonnées
@@ -76,7 +78,8 @@ export default function Sidebar() {
               <ChatBubbleOutline className="sidebarIcon" />
               Messages
             </li>
-         
+    
+
           </ul>
      
         </div>

@@ -20,56 +20,56 @@ const Register = (props) => {
   .catch(error=>console.log(error))
   }
   return (
-    <div className="main1" align="center"> 
-      <form className="sign" align="center" onSubmit={register}>
+    <div className="app" align="center"> 
+  <form className="contact-us1" align="center" onSubmit={register}>
         
           <legend>S'enregistrer</legend>
-          <div className="un"  align="center"> 
+          <div className="contact-us1"  align="center"> 
             <label htmlFor="fullName">fullName</label>
             <input
             id="fullName"
             name="fullName"
               type="text"
-              className="pass" align="center"
+              className="form-control" align="center"
               placeholder="fullName"
               required
             
             />
           </div>
-          <div className="un" align="center">
+          <div className="contact-us1" align="center">
             <label htmlFor="username">username</label>
             <input
             id="username"
             name="username"
               type="text"
-              className="pass" align="center"
+              className="form-control" align="center"
               placeholder="username"
               required
             />
           </div>
-          <div className="un" align="center">
+          <div className="contact-us1" align="center">
             <label htmlFor="matricule">matricule</label>
             <input
             id="matricule"
             name="matricule"
               type="INT"
-              className="pass" align="center"
+              className="form-control" align="center"
               placeholder="matricule"
               required
             />
           </div>
-          <div className="un" align="center">
+          <div className="contact-us1" align="center">
             <label htmlFor="password">Password</label>
             <input
             id="Password"
             name="Password"
               type="password"
-              className="pass" align="center"
+              className="form-control" align="center"
               placeholder="Password"
               required
             />
           </div>
-          <button type="submit" className="submit" align="center">
+          <button type="submit" className="btn-outline-primary " align="center">
             Save
           </button>
         
