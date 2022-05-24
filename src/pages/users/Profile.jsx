@@ -9,7 +9,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
     console.log('id => ' , id );
-    axios.get(`http://localhost:3005/users${id}`) 
+    axios.get(`http://localhost:3005/user/${id}`) 
       .then(res => {
         console.log("tag => ", res.data);
         setUser(res.data)

@@ -50,6 +50,12 @@ const Navbar = ({ logout, token }) => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                 
+                <NavLink className="nav-link" to= "/admin/userList">
+                  Liste des Compte
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <button
                   onClick={logout}
                   className="btn Mywhitecolor">Déconnexion</button>

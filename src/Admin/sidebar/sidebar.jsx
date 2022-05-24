@@ -29,15 +29,13 @@ export default function Sidebar() {
               <BarChart className="sidebarIcon" />
               Reports
             </li>
-           
-    
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Mon Compte</h3>
           <ul className="sidebarList">
 
-            <Link to="/cordonnee" className="link">
+            <Link to="/rh/cordonnee" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
                 Mes cordonnées
@@ -49,18 +47,18 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Gestion des Employés</h3>
           <ul className="sidebarList">
-            <Link to="/HistoriquedemandeList" className="link">
+            <Link to="/rh/HistoriquedemandeList" className="link">
               <li className="sidebarListItem">
                 Historique des demandes
               </li>
             </Link>
-            <Link to="/userList" className="link">
+            <Link to="/rh/userList" className="link">
               <li className="sidebarListItem">
                 Liste des employés
               </li>
             </Link>
   
-            <Link to="/Edituser" className="link">
+            <Link to="/rh/Edituser" className="link">
               <li className="sidebarListItem">
                 Ajouter un employé
               </li>

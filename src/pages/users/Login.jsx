@@ -4,15 +4,12 @@ const Login = ({login,error}) => {
   
 
     return (
-
-
     <form className="app">
 
 <div className="form">
 
       <h2 style={{color:"red"}}>{error ?  " nom d'utilisateur ou mot de passe invalide " : null }</h2>
       <form className="sign"  align="center" onSubmit={login}>
-      
       
           <legend className="eya">Se connecter</legend>
           <div className="contact-us" align="center" >
@@ -36,9 +33,6 @@ const Login = ({login,error}) => {
               placeholder="Password"
             />
           </div>
-
-
-
   <button type="btn-outline-primary" className="btn-outline-primary " align="center">
             Se connecter
           </button>

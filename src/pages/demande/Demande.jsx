@@ -1,9 +1,16 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import jwtDecode from "jwt-decode";
+import React, { useEffect, useState } from "react";
 
 const Demande = (props) => {
+  const [token, setToken] = useState(null);
+
+
   useEffect(()=>{
-    console.log(props)})
+    setToken(localStorage.getItem("token"));
+    console.log("decode token =>  ", jwtDecode(localStorage.getItem("token")).id);
+  },[])
+
   const demande = (e)=>{
    e.preventDefault() ;
    const  {Date_debut , Date_fin ,nombre_jrs ,type_Conge, }=e.target.elements;
@@ -13,8 +20,7 @@ const Demande = (props) => {
      Date_retour: Date_fin.value,
      nombre_jrs: nombre_jrs.value,
      type_Conge: type_Conge.value ,
-     userID:nombre_jrs.value,
-
+     userId:jwtDecode(token).id,
    }).then(res=>{
     props.history.push("/Homepage");
   })
@@ -42,7 +48,6 @@ const Demande = (props) => {
               id="Date_fin"  
               name="Date_fin"
               className="form-control"
-              
             />
           </div>
           <div className="form-group">
