@@ -20,11 +20,17 @@ const Register = (props) => {
   .catch(error=>console.log(error))
   }
   return (
-    <div className="app" align="center"> 
+
+
+    <form className="app" align="center"> 
+    <div className="form">
   <form className="contact-us1" align="center" onSubmit={register}>
         
-          <legend>S'enregistrer</legend>
-          <div className="contact-us1"  align="center"> 
+
+        
+  <legend className="eya1"> S'enregistrer</legend>
+         
+          <div className="contact-us1"align="center"> 
             <label htmlFor="fullName">fullName</label>
             <input
             id="fullName"
@@ -75,6 +81,7 @@ const Register = (props) => {
         
       </form>
     </div>
+    </form>
   );
 };
 

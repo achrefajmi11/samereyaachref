@@ -70,9 +70,9 @@ function App() {
       console.log(parseJwt(res.data.token).role)
       setToken(res.data.token)
       if(role === "admin")
-       history.push("/Account")
+       history.push("/cordonnee")
       else if (role === "user"){
-        history.push("/cordonnee")
+        history.push("/user")
       } 
     })
       .catch(error => {
@@ -114,11 +114,12 @@ function App() {
             :
             <>
             <>
+            
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={() => <Login login={login} error={error} ></Login>} />
          
-            </>
             
+            </>
             <Sidebar/>
                <Route exact path="/cordonnee" component={Cordonnee} />
                <Route exact path="/HistoriquedemandeList" component={HistoriquedemandeList} />

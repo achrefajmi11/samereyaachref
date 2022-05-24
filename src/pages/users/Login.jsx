@@ -4,20 +4,23 @@ const Login = ({login,error}) => {
   
 
     return (
-    <div className="app">
-      <h1 style={{color:"red"}}>{error ?  " nom d'utilisateur ou mot de passe invalide " : null }</h1>
+
+
+    <form className="app">
+
+<div className="form">
+
+      <h2 style={{color:"red"}}>{error ?  " nom d'utilisateur ou mot de passe invalide " : null }</h2>
       <form className="sign"  align="center" onSubmit={login}>
       
       
-          <legend className="contact-us">Se connecter</legend>
+          <legend className="eya">Se connecter</legend>
           <div className="contact-us" align="center" >
             <label htmlFor="matricule"></label>
             <input 
               type="INT"
               name="matricule"
-
-
-               className="form-control"  align="center"
+                className="form-control"align="center"
               placeholder="matricule"
               id="matricule"
               
@@ -34,13 +37,16 @@ const Login = ({login,error}) => {
             />
           </div>
 
-          <button type="btn-outline-primary" className="submit" align="center">
+
+
+  <button type="btn-outline-primary" className="btn-outline-primary " align="center">
             Se connecter
           </button>
          
           
       </form>
     </div>
+    </form>
   );
 };
 
