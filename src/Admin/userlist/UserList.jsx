@@ -41,54 +41,94 @@ export default function UserList() {
               console.log("data=>" , data);
 
           return (
-            <div className={"container-table"}> 
-            <div className={"sub-container"}>
-              <table className="styled-table">
-                
-                <thead>
-                  <tr>
-                    <th  style={{textAlign: "Center"}}>id</th>
-                    <th  style={{textAlign: "Center"}}>fullName</th>
-                    <th  style={{textAlign: "Center"}}>username</th>
-                    <th  style={{textAlign: "Center"}}>matricule</th>
-                    <th  style={{textAlign: "Center"}}>Edit</th>
-                    
+            <>
+      <div className={"container-table"}>
+        <div class="table-responsive">
+          <table class="table" >
+
+            <thead className='thead-dark'>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">matricule</th>
+                <th scope="col">Edit</th>
               </tr>
-              </thead>
-              <tbody>
-                {data && data.map((item, index) =>{
-  
-        return(
-          <tr key={index}>
-            <th scope="row" >{index +1}</th>
-        
-            <td>{item.fullName}</td>
-            <td>{item.username}</td>
-          
-            <td>{item.matricule}</td> 
-            
-            <td>
-           
-                <button className="btn btn-edit">Edit</button>
-             
-                <Link
-                            onClick={()=>deleteUser(data.id)}
-                            to={"#"}
-                             className="btn btn-delete">
-                          
-                            Delete
-                          </Link>          
-               
-               
-                
-                   </td>
-        </tr>
-        );
-    })}
-              </tbody>
-              </table>
-            </div>
-            </div>
+            </thead>
+            <tbody>
+                  {data && data.map((item, index) =>{
+                    return(
+                      <tr key={index}>
+                        <th scope="row" >{index +1}</th>
+                        <td>{item.fullName}</td>
+                        <td>{item.username}</td>
+                        <td>{item.matricule}</td> 
+                        <td>
+                            <button className="btn btn-primary">Edit</button>
+                            <Link
+                              onClick={()=>deleteUser(data.id)}
+                              to={"#"}
+                              className="btn btn-danger">
+                              Delete
+                            </Link>          
+                        </td>
+                    </tr>
+                    );})}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </>
           );
           
   };
+
+  // <div className={"container-table"}> 
+  //           <div className={"sub-container"}>
+  //             <table className="styled-table">
+                
+  //               <thead>
+  //                 <tr>
+  //                   <th  style={{textAlign: "Center"}}>id</th>
+  //                   <th  style={{textAlign: "Center"}}>fullName</th>
+  //                   <th  style={{textAlign: "Center"}}>username</th>
+  //                   <th  style={{textAlign: "Center"}}>matricule</th>
+  //                   <th  style={{textAlign: "Center"}}>Edit</th>
+                    
+  //             </tr>
+  //             </thead>
+  //             <tbody>
+        //         {data && data.map((item, index) =>{
+  
+        // return(
+        //   <tr key={index}>
+        //     <th scope="row" >{index +1}</th>
+        
+        //     <td>{item.fullName}</td>
+        //     <td>{item.username}</td>
+          
+        //     <td>{item.matricule}</td> 
+            
+        //     <td>
+           
+        //         <button className="btn btn-edit">Edit</button>
+             
+        //         <Link
+        //                     onClick={()=>deleteUser(data.id)}
+        //                     to={"#"}
+        //                      className="btn btn-delete">
+                          
+        //                     Delete
+        //                   </Link>          
+               
+               
+                
+        //            </td>
+        // </tr>
+        // );
+  //   })}
+  //             </tbody>
+  //             </table>
+  //           </div>
+  //           </div>
