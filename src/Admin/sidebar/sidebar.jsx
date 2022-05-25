@@ -16,11 +16,14 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({role}) {
   return (
 
     <div className="sidebar">
       <div className="sidebarWrapper">
+      {role == 'rh'
+            ? 
+            <>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
@@ -44,14 +47,21 @@ export default function Sidebar() {
 
           </ul>
         </div>
+        </>
+        :null
+      }
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Gestion des Employés</h3>
           <ul className="sidebarList">
+           {role == 'rh'
+            ? 
             <Link to="/rh/HistoriquedemandeList" className="link">
               <li className="sidebarListItem">
-                Historique des demandes
+                Demandes des employés
               </li>
             </Link>
+            :null
+           }
             <Link to="/rh/userList" className="link">
               <li className="sidebarListItem">
                 Liste des employés

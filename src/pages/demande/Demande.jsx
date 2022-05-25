@@ -14,7 +14,7 @@ const Demande = (props) => {
   const demande = (e)=>{
    e.preventDefault() ;
    const  {Date_debut , Date_fin ,nombre_jrs ,type_Conge, }=e.target.elements;
-  //  console.log(Date_debut.value,Date_fin.value,nombre_jrs.value,type_Conge.value)
+   console.log(Date_debut.value,Date_fin.value,nombre_jrs.value,type_Conge.value)
    axios.post("http://localhost:3005/conge",{
      Date_debut :Date_debut.value,
      Date_retour: Date_fin.value,
@@ -22,12 +22,12 @@ const Demande = (props) => {
      type_Conge: type_Conge.value ,
      userId:jwtDecode(token).id,
    }).then(res=>{
-    props.history.push("/Homepage");
+    props.history.push("/account");
   })
   .catch(error=>console.log(error))
   }
   return (
-    <div className="tab-content container mt-4">
+    <div className="tab-content">
       <form className="form-profile" onSubmit={demande}>
         <fieldset>
           <legend>Créer une nouvelle demande de congé</legend>
@@ -62,13 +62,22 @@ const Demande = (props) => {
           </div>
           <div className="form-group">
             <label htmlFor="Type">Type congé</label>
-            <input
+            <select className='form-control' id="type_Conge"  
+              name="type_Conge">
+              <option value="congé-annuel">
+                congé annuel
+              </option>
+              <option value="maladie">
+                maladie
+              </option>
+            </select>
+            {/* <input
               type="Text"
               id="type_Conge"  
               name="type_Conge"
               className="form-control"
               
-            />
+            /> */}
           </div>
        
 

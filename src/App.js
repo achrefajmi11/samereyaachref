@@ -85,39 +85,43 @@ function App() {
   }, [])
 
   return (
-    <>
-      <Navbar logout={logout}
-        token={token}
-      />
-      <div className="">
+
         <Switch>
           {
             token ?
               <>
-                    <Route exact path="/profile" component={Profile} />
-                    <Route exact path="/account" component={Account} />
-                    <Route exact path="/demande" component={Demande} />
-                    <Route exact path="/" component={Homepage} />  
-                    {role == "rh" ? <Sidebar /> : null}
-                    <Route exact path="/rh/cordonnee" component={Profile} />
-                    <Route exact path="/rh/HistoriquedemandeList" component={HistoriquedemandeList} />
-                    <Route exact path="/rh/userList" component={userList} />
-                    <Route exact path="/rh/EditUser" component={EditUser} />
-
-                    <Route exact path="/admin/userList" component={userList} />
-                    <Route exact path="/admin" >
-                    
-                    </Route>
+                    <Navbar logout={logout}
+                      token={token}
+                    />
+                    <div className="main-container">
+                      {role == "rh" ||  role == "admin"  ? <Sidebar  role={role}/> : null}
+                      <div className="subContainer">
+                        <div className="sub-subContainer">
+                            <Route exact path="/profile" component={Profile} />
+                            <Route exact path="/account" component={Account} />
+                            <Route exact path="/demande" component={Demande} />
+                            <Route exact path="/home" component={Homepage} />  
+                            <Route exact path="/rh/cordonnee" component={Profile} />
+                            <Route exact path="/rh/HistoriquedemandeList" component={HistoriquedemandeList} />
+                            <Route exact path="/rh/userList" component={userList} />
+                            <Route exact path="/rh/EditUser" component={EditUser} />
+                            <Route exact path="/admin/userList" component={userList} />
+                         
+                          </div>
+                      </div>
+                    </div>  
               </>
               :
                 <>
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={() => <Login login={login} error={error} ></Login>} />
-                </>
+                  <Route  exact path="/" >
+                    <p>  404 page !  </p>
+                  </Route>
+                </>   
           }
+
         </Switch>
-      </div>
-    </>
   );
 }
 

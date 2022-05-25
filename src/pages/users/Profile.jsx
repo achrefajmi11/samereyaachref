@@ -5,6 +5,25 @@ import parseJwt from '../../services/parseJWT';
 import "./profile.css";
 const Profile = (props) => {
   const [user, setUser] = useState(null);
+
+
+  const [jrs, setJrs] = useState(0);
+
+  const getusers = async () => {
+    const token = localStorage.getItem('token');
+    const id = parseJwt(token).id;
+
+    const response = await axios.get(`http://localhost:3005/userConges/${id}`)
+    if (response.status === 200) {
+      const newJrs = response.data.reduce((acc, item)=>{
+         return acc + item.nombre_jrs
+      },0)
+      setJrs(newJrs);
+    }
+  };
+
+
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
@@ -17,13 +36,16 @@ const Profile = (props) => {
       .catch(error => {
         console.log(" error =>  ", error.message);
       })
+      getusers();
   }, [])
 
   const update = (e) => {
     e.preventDefault();
     const { username, fullName, matricule } = e.target.elements;
+    const token = localStorage.getItem('token');
+    const id = parseJwt(token).id;
     console.log(username.value, fullName.value, matricule.value)
-    axios.patch(("http://localhost:3005/user/1"), {
+    axios.patch((`http://localhost:3005/user/${id}`), {
       username: username.value,
       fullName: fullName.value,
       matricule: matricule.value,
@@ -43,20 +65,12 @@ const Profile = (props) => {
                   <div className="userShowTop"></div>
                   <div className="tab-content">
                     <fieldset className="sss">
-                      <legend className="aa">Mes cordonnées : </legend>
-                      <span className="userShowTitle">Account Details</span>
+                      <legend className="aa">congé details: </legend>
+                      <span className="userShowTitle">Solde congé annuel : 18 jrs</span>
+                      <br/>
+                      <span className="userShowTitle">Solde congé utilisé : {jrs} </span>
                       <div className="userShowInfo">
-                        <span className="form-group">{user.fullName}</span>
-                      </div>
-                      <div className="userShowInfo">
-                        <span className="userShowInfoTitle">{user.username}</span>
-                      </div>
-                      <div className="userShowInfo">
-                        <span className="userShowInfoTitle">{user.matricule}</span>
-                      </div>
-                      <span className="userShowTitle">Contact Details</span>
-                      <div className="userShowInfo">
-                        <span className="userShowInfoTitle">Numéro</span>
+                        <span className="userShowInfoTitle">Solde congé restant {18 - jrs}</span>
                       </div>
                       <div className="userShowInfo">
                         <span className="userShowInfoTitle">Email</span>
