@@ -1,4 +1,60 @@
-.tab-content{
+.userContainer{
+background-color: #eee;
+width: 100%;
+padding-bottom: 30px;
+padding-top: 30px;
+
+}
+
+.myBorder{
+  border: 1px solid black;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .myMargin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .tab-content{
     flex: 4;
   }
   
@@ -136,4 +192,4 @@
       background-color: rgb(186, 40, 40);
       color: white;
       font-weight: 600;
-  }
+  } */

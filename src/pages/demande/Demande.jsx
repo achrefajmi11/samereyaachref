@@ -27,7 +27,7 @@ const Demande = (props) => {
   .catch(error=>console.log(error))
   }
   return (
-    <div className="tab-content">
+    <div className="tab-content container mt-4">
       <form className="form-profile" onSubmit={demande}>
         <fieldset>
           <legend>Créer une nouvelle demande de congé</legend>

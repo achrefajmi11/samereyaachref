@@ -1,4 +1,4 @@
-
+/* 
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -18,21 +18,7 @@
     justify-content: center;
   }
   
-  .tabs .tabs-pane {
-    margin: 1%;
-    padding-bottom: 0.9%;
-    cursor: pointer;
-    list-style: none;
-  }
   
-  .tabs .tabs-pane span {
-    color: cadetblue;
-    font-size: 1.5rem;
-  }
-  
-  .tabs .tabs-pane.active {
-    border-bottom: 1px solid cadetblue;
-  }
   
   .tab-content {
     width: 80%;
@@ -55,12 +41,7 @@
     width: auto;
   }
   
-  .tabs ul {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-  }
+  
   
   .tablehis, td,th{
     text-align: center ;
@@ -209,6 +190,26 @@
   
   .tab-content{
     flex: 4;
+  } */
+  
+  .tabs .tabs-pane {
+    margin: 1%;
+    padding-bottom: 0.9%;
+    cursor: pointer;
+    list-style: none;
   }
   
+  .tabs .tabs-pane span {
+    color: cadetblue;
+    font-size: 1.5rem;
+  }
   
+  .tabs .tabs-pane.active {
+    border-bottom: 1px solid cadetblue;
+  }
+  .tabs ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
