@@ -22,7 +22,7 @@ const Account = (props) => {
   };
   return (
     <>
-      <div className="tabs">
+   <div className="tabs">
         <ul>
           {tabs.map((tab, index) => (
             <li
@@ -34,8 +34,9 @@ const Account = (props) => {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="tabs-contents">
+      </div> 
+      {/* tabs-contents */}
+      <div className="">
         {curentTab.name === "profile" && <Profile />}
         {curentTab.name === "demande" && <Demande {...props} />}
         {curentTab.name === "historique demande" && <HistoriqueDemande/>}

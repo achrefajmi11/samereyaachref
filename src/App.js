@@ -89,7 +89,7 @@ function App() {
       <Navbar logout={logout}
         token={token}
       />
-      <div className="container">
+      <div className="">
         <Switch>
           {
             token ?
