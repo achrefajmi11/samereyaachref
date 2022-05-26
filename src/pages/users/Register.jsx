@@ -24,13 +24,13 @@ const Register = (props) => {
 
     <form className="app" align="center"> 
     <div className="form">
-  <form className="contact-us1" align="center" onSubmit={register}>
+  <form className="contact-us" align="center" onSubmit={register}>
         
 
         
-  <legend className="eya1"> S'enregistrer</legend>
+  <legend className="eya"> S'enregistrer</legend>
          
-          <div className="contact-us1"align="center"> 
+          <div className="contact-us"align="center"> 
             <label htmlFor="fullName">fullName</label>
             <input
             id="fullName"
@@ -42,7 +42,7 @@ const Register = (props) => {
             
             />
           </div>
-          <div className="contact-us1" align="center">
+          <div className="contact-us" align="center">
             <label htmlFor="username">username</label>
             <input
             id="username"
@@ -53,7 +53,7 @@ const Register = (props) => {
               required
             />
           </div>
-          <div className="contact-us1" align="center">
+          <div className="contact-us" align="center">
             <label htmlFor="matricule">matricule</label>
             <input
             id="matricule"
@@ -64,7 +64,7 @@ const Register = (props) => {
               required
             />
           </div>
-          <div className="contact-us1" align="center">
+          <div className="contact-us" align="center">
             <label htmlFor="password">Password</label>
             <input
             id="Password"

@@ -22,11 +22,11 @@ const Register = (props) => {
   .catch(error=>console.log(error))
   }
   return (
-    <div className="tab-content">
-      <form className="form-profile" onSubmit={register}>
+    <div className="container-table">
+      <form className="col-12 col-md-10 myMargin myBorder"  onSubmit={register}>
         <fieldset>
-          <legend>ADD USER</legend>
-          <div className="form-group">
+          <legend className="eya2" >Ajouter un employé </legend>
+          <div className="achref1" >
             <label htmlFor="fullName">fullName</label>
             <input
             id="fullName"
@@ -53,16 +53,6 @@ const Register = (props) => {
             id="matricule"
             name="matricule"
               type="INT"
-              className="form-control"
-              
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-            id="Password"
-            name="Password"
-              type="password"
               className="form-control"
               
             />

@@ -120,7 +120,7 @@ const Profile = (props) => {
                         <label htmlFor="file"></label>
                         <input type="file" id="file" style={{ display: "none" }} />
                       </div>
-                      <button className="btn btn-primary pb-1">Update</button>
+                      <button className="">Update</button>
                     </div>
                   </form>
                 </div>

@@ -101,7 +101,7 @@ function App() {
                             <Route exact path="/account" component={Account} />
                             <Route exact path="/demande" component={Demande} />
                             <Route exact path="/home" component={Homepage} />  
-                            <Route exact path="/rh/cordonnee" component={Profile} />
+                            <Route exact path="/rh/cordonnee" component={Cordonnee} />
                             <Route exact path="/rh/HistoriquedemandeList" component={HistoriquedemandeList} />
                             <Route exact path="/rh/userList" component={userList} />
                             <Route exact path="/rh/EditUser" component={EditUser} />
