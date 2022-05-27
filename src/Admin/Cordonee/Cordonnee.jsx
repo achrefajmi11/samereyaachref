@@ -26,7 +26,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
     console.log('id => ', id);
-    axios.get(`http://localhost:3005/user/${id}`)
+    axios.get(`http://localhost:3006/user/${id}`)
       .then(res => {
         console.log("tag => ", res.data);
         setUser(res.data)
@@ -43,7 +43,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
     console.log(username.value, fullName.value, matricule.value)
-    axios.patch((`http://localhost:3005/user/${id}`), {
+    axios.patch((`http://localhost:3006/user/${id}`), {
       username: username.value,
       fullName: fullName.value,
       matricule: matricule.value,

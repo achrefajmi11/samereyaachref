@@ -15,7 +15,9 @@ import Login from "./pages/users/Login";
 import Profile from "./pages/users/Profile";
 import Register from "./pages/users/Register";
 import Homepage from "./pages/Homepage";
-import Demande from "./pages/demande/Demande";
+import Demandeannuel from "./pages/demande/Demandeannuel";
+import Demande from "./pages/demande/Demande"; 
+
 import parseJwt from "./services/parseJWT";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -101,6 +103,7 @@ function App() {
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/account" component={Account} />
                             <Route exact path="/demande" component={Demande} />
+                            <Route exact path="/demandeannuel" component={Demandeannuel} />
                             <Route exact path="/home" component={Homepage} />  
                             <Route exact path="/rh/cordonnee" component={Cordonnee} />
                             <Route exact path="/rh/HistoriquedemandeList" component={HistoriquedemandeList} />

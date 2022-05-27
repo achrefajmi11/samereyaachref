@@ -8,17 +8,22 @@ const Profile = (props) => {
 
 
   const [jrs, setJrs] = useState(0);
-
+  const [jrsExceptionnel, setJrsExceptionnel] = useState(0);
   const getusers = async () => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
 
     const response = await axios.get(`http://localhost:3006/userConges/${id}`)
-    if (response.status === 200) {
+    const responseExceptionnel = await axios.get(`http://localhost:3006/userCongess/${id}`)
+    if (response.status === 200 && responseExceptionnel.status === 200) {
       const newJrs = response.data.reduce((acc, item)=>{
          return acc + item.nombre_jrs
       },0)
+      const newJrsExceptionnel = responseExceptionnel.data.reduce((acc, item)=>{
+        return acc + item.nombre_jrs
+     },0)
       setJrs(newJrs);
+      setJrsExceptionnel(newJrsExceptionnel);
     }
   };
 
@@ -66,15 +71,32 @@ const Profile = (props) => {
                   <div className="tab-content">
                     <fieldset className="sss">
                       <p className="ajou">congé details: </p>
-                      <span className="aa">Solde congé annuel : 18 jrs</span>
+                      <span className="aa">Solde congé annuel : 21 jrs</span>
                       <br/>
                       <span className="aa">Solde congé utilisé : {jrs} </span>
                       <div className="userShowInfo">
-                        <span className="aa">Solde congé restant {18 - jrs}</span>
+                        <span className="aa">Solde congé restant {21 - jrs}</span>
                       </div>
                       
                     </fieldset>
                   </div>
+
+
+                  <div className="tab-content">
+                    <fieldset className="sss">
+                      <p className="ajou">congé details: </p>
+                      <span className="aa">Solde congé exeptionnel : 10 jrs</span>
+                      <br/>
+                      <span className="aa">Solde congé utilisé : {jrsExceptionnel} </span>
+                      <div className="userShowInfo">
+                        <span className="aa">Solde congé restant {10- jrsExceptionnel}</span>
+                      </div>
+                      
+                    </fieldset>
+                  </div>
+
+
+
                 </div>
               </div>
 

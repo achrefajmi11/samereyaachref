@@ -4,6 +4,7 @@ import Profile from "./Profile";
 
 import Demande from "../demande/Demande";
 import HistoriqueDemande from "./HistoriqueDemande";
+import Demandeannuel from "../demande/Demandeannuel";
 
 
 
@@ -13,8 +14,10 @@ const Account = (props) => {
 
   const [tabs] = useState([
     { tabKey: "profile", tabTitle: "Mon profile" },
-    { tabKey: "demande", tabTitle: "Demande" },
+    { tabKey: "demande", tabTitle: "Demande exeptionnel" },
+    { tabKey: "demandeannuel", tabTitle: "Demande annuel" },
     { tabKey: "historique demande", tabTitle: "Historique Demande"},
+ 
   ]);
 
   const handleTabs = (name) => {
@@ -40,6 +43,7 @@ const Account = (props) => {
         {curentTab.name === "profile" && <Profile />}
         {curentTab.name === "demande" && <Demande {...props} />}
         {curentTab.name === "historique demande" && <HistoriqueDemande/>}
+        {curentTab.name === "demandeannuel" && <Demandeannuel {...props} />}
       </div>
     </>
   );

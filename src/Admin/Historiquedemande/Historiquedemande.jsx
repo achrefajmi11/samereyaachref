@@ -10,11 +10,14 @@ export default function HistoriquedemandeList() {
 
 
   const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]);
 
   const getusers = async () => {
     const response = await axios.get("http://localhost:3006/conge")
-    if (response.status === 200) {
+    const response1 = await axios.get("http://localhost:3006/congeex")
+    if (response.status === 200 && response1.status === 200) {
       setData(response.data);
+      setData1(response1.data); 
       console.log("data=>", response.data);
     }
   };
@@ -24,20 +27,26 @@ export default function HistoriquedemandeList() {
   }, []);
 
 
-  const updateStatus = (status, congeId) => {
+  const updateStatus = (status, congeId ,type=null) => {
     console.log('id', congeId)
 
     axios
       .post("http://localhost:3006/status",
         {
           id: congeId,
-          status: status
+          status: status,
+          type
         })
       .then(res => {
         setData(data.map((value) => {
           if (value.id_Conge == congeId)
             value.status = status
 
+          return value;
+        }))
+        setData1(data1.map((value) => {
+          if (value.id_Conge == congeId)
+            value.status = status
           return value;
         }))
       })
@@ -69,7 +78,7 @@ export default function HistoriquedemandeList() {
                   <td> {item.user?.fullName || item.user?.matricule} </td>
                   <td>{item.type_Conge}</td>
                   <td>{moment(item.Date_debut).format("D/M/Y")}</td>
-                  <td>{item.Date_retour}</td>
+                  <td>{moment(item.Date_retour).format("D/M/Y")}</td>
                   <td>{item.nombre_jrs}</td>
                   <td>
                     {
@@ -92,6 +101,56 @@ export default function HistoriquedemandeList() {
           </tbody>
         </table>
       </div>
+
+
+      <div className={"sub-container"}>
+        <table className="styled-table">
+
+          <thead>
+            <tr>
+              <th style={{ textAlign: "Center" }}>employé</th>
+              <th style={{ textAlign: "Center" }}>type_Conge</th>
+              <th style={{ textAlign: "Center" }}>date_debut</th>
+              <th style={{ textAlign: "Center" }}>date_retour</th>
+              <th style={{ textAlign: "Center" }}>nombre_jrs</th>
+              <th style={{ textAlign: "Center" }}>status</th>
+
+            </tr>
+          </thead>
+          
+          <tbody>
+            {data1 && data1.map((item, index) => {
+
+              return (
+                <tr key={index}>
+                  <td> {item.user?.fullName || item.user?.matricule} </td>
+                  <td>{item.type_Conge}</td>
+                  <td>{moment(item.Date_debut).format("D/M/Y")}</td>
+                  <td>{moment(item.Date_retour).format("D/M/Y")}</td>
+                  <td>{item.nombre_jrs}</td>
+                  <td>
+                    {
+                      item.status == "0" ?
+                        <>
+                          <button className="btn btn-edit"
+                            onClick={() => updateStatus("1", item.id_Conge,"exception")}
+                          >Accepter</button>
+
+                          <button className="btn btn-delete" onClick={() => updateStatus("-1", item.id_Conge,"exception")} >refuser</button>
+
+                        </>
+                        : item.status == "1" ? <p> accepted !  </p> : <p> refuser !  </p>
+                    }
+
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+
     </div>
 
 
