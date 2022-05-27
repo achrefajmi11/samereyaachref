@@ -16,7 +16,7 @@ export default function UserList() {
   
   
     useEffect(() => {
-      axios.get(`http://localhost:3005/users`).then((res) => {
+      axios.get(`http://localhost:3006/employes`).then((res) => {
         setData(res.data);
       });
     }, []);
@@ -25,7 +25,7 @@ export default function UserList() {
     
 
     function loadUsers() {
-      axios.get("http://localhost:3005/users").then((res) => {
+      axios.get("http://localhost:3006/employes").then((res) => {
         setData(res.data.reverse());
       });
     }
@@ -35,7 +35,7 @@ export default function UserList() {
     }, []);
   
     function deleteUser(id) {
-      axios.delete(`http://localhost:300/user/${id}`).then(loadUsers());
+      axios.delete(`http://localhost:3006/employe/${id}`).then(loadUsers());
     }
   
               console.log("data=>" , data);
@@ -51,7 +51,10 @@ export default function UserList() {
                     <th  style={{textAlign: "Center"}}>fullName</th>
                     <th  style={{textAlign: "Center"}}>username</th>
                     <th  style={{textAlign: "Center"}}>matricule</th>
+                    <th  style={{textAlign: "Center"}}>Anicienneté</th>
+                    <th  style={{textAlign: "Center"}}>Age</th>
                     <th  style={{textAlign: "Center"}}>Edit</th>
+
                     
               </tr>
               </thead>
@@ -64,8 +67,9 @@ export default function UserList() {
         
             <td>{item.fullName}</td>
             <td>{item.username}</td>
-          
+            <td>{item.Anicienneté}</td> 
             <td>{item.matricule}</td> 
+            <td>{item.Age}</td> 
             
             <td>
            

@@ -12,7 +12,7 @@ export default function HistoriquedemandeList() {
   const [data, setData] = useState([]);
 
   const getusers = async () => {
-    const response = await axios.get("http://localhost:3005/conge")
+    const response = await axios.get("http://localhost:3006/conge")
     if (response.status === 200) {
       setData(response.data);
       console.log("data=>", response.data);
@@ -28,7 +28,7 @@ export default function HistoriquedemandeList() {
     console.log('id', congeId)
 
     axios
-      .post("http://localhost:3005/status",
+      .post("http://localhost:3006/status",
         {
           id: congeId,
           status: status
@@ -60,6 +60,7 @@ export default function HistoriquedemandeList() {
 
             </tr>
           </thead>
+          
           <tbody>
             {data && data.map((item, index) => {
 

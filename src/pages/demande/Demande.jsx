@@ -15,7 +15,7 @@ const Demande = (props) => {
    e.preventDefault() ;
    const  {Date_debut , Date_fin ,nombre_jrs ,type_Conge, }=e.target.elements;
    console.log(Date_debut.value,Date_fin.value,nombre_jrs.value,type_Conge.value)
-   axios.post("http://localhost:3005/conge",{
+   axios.post("http://localhost:3006/conge",{
      Date_debut :Date_debut.value,
      Date_retour: Date_fin.value,
      nombre_jrs: nombre_jrs.value,
@@ -71,13 +71,6 @@ const Demande = (props) => {
                 maladie
               </option>
             </select>
-            {/* <input
-              type="Text"
-              id="type_Conge"  
-              name="type_Conge"
-              className="form-control"
-              
-            /> */}
           </div>
        
 

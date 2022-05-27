@@ -13,7 +13,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
 
-    const response = await axios.get(`http://localhost:3005/userConges/${id}`)
+    const response = await axios.get(`http://localhost:3006/userConges/${id}`)
     if (response.status === 200) {
       const newJrs = response.data.reduce((acc, item)=>{
          return acc + item.nombre_jrs
@@ -28,7 +28,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
     console.log('id => ', id);
-    axios.get(`http://localhost:3005/user/${id}`)
+    axios.get(`http://localhost:3006/user/${id}`)
       .then(res => {
         console.log("tag => ", res.data);
         setUser(res.data)
@@ -45,7 +45,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
     console.log(username.value, fullName.value, matricule.value)
-    axios.patch((`http://localhost:3005/user/${id}`), {
+    axios.patch((`http://localhost:3006/user/${id}`), {
       username: username.value,
       fullName: fullName.value,
       matricule: matricule.value,
@@ -65,23 +65,23 @@ const Profile = (props) => {
                   <div className="userShowTop"></div>
                   <div className="tab-content">
                     <fieldset className="sss">
-                      <legend className="aa">congé details: </legend>
-                      <span className="userShowTitle">Solde congé annuel : 18 jrs</span>
+                      <p className="ajou">congé details: </p>
+                      <span className="aa">Solde congé annuel : 18 jrs</span>
                       <br/>
-                      <span className="userShowTitle">Solde congé utilisé : {jrs} </span>
+                      <span className="aa">Solde congé utilisé : {jrs} </span>
                       <div className="userShowInfo">
-                        <span className="userShowInfoTitle">Solde congé restant {18 - jrs}</span>
+                        <span className="aa">Solde congé restant {18 - jrs}</span>
                       </div>
-                      <div className="userShowInfo">
-                        <span className="userShowInfoTitle">Email</span>
-                      </div>
+                      
                     </fieldset>
                   </div>
                 </div>
               </div>
+
+
               <div className="col-12 col-md-5 myMargin myBorder">
                 <div className="achref1">
-                  <span className="userUpdateTitle">Edit</span>
+                  <p className="eya2">Edit</p>
                   <form className="userUpdateForm" onSubmit={update}>
                     <div className="userUpdateLeft">
                       <div className="userUpdateItem">
@@ -120,7 +120,7 @@ const Profile = (props) => {
                         <label htmlFor="file"></label>
                         <input type="file" id="file" style={{ display: "none" }} />
                       </div>
-                      <button className="">Update</button>
+                      <button className="btn btn-outline-primary">Update</button>
                     </div>
                   </form>
                 </div>

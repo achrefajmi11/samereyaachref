@@ -36,7 +36,7 @@ const Account = (props) => {
         </ul>
       </div> 
       {/* tabs-contents */}
-      <div className="">
+      <div className=" tabs-contents">
         {curentTab.name === "profile" && <Profile />}
         {curentTab.name === "demande" && <Demande {...props} />}
         {curentTab.name === "historique demande" && <HistoriqueDemande/>}

@@ -13,7 +13,7 @@ const Profile = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
 
-    const response = await axios.get(`http://localhost:3005/userConges/${id}`)
+    const response = await axios.get(`http://localhost:3006/userConges/${id}`)
     if (response.status === 200) {
       const newJrs = response.data.reduce((acc, item)=>{
          return acc + item.nombre_jrs
@@ -21,8 +21,6 @@ const Profile = (props) => {
       setJrs(newJrs);
     }
   };
-
-
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -69,7 +67,7 @@ const Profile = (props) => {
               <div className="col-12 col-md-8 myMargin myBorder">
                 <div className="achref1">
                 
-          <legend className="eya2" >Modifier mes informations</legend>
+          <legend className="eya2" align="centre">Modifier mes informations</legend>
                   <form className="userUpdateForm" onSubmit={update}>
                     <div className="userUpdateLeft">
                       <div className="userUpdateItem">

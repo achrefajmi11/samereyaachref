@@ -6,7 +6,7 @@ const Login = ({login,error}) => {
     return (
     <form className="app">
 
-<div className="form">
+<div className="form1">
 
       <h2 style={{color:"red"}}>{error ?  " nom d'utilisateur ou mot de passe invalide " : null }</h2>
       <form className="sign"  align="center" onSubmit={login}>

@@ -1,4 +1,4 @@
-/* 
+
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -152,8 +152,8 @@
   
   
   .container-table {
-    width: 120vw;
-    padding: 40vw;
+    width: 70vw;
+    padding: inherit;
     background-color: white;
     max-height: 1500vh;
     overflow: scroll;
@@ -185,31 +185,10 @@
     background-color: rgb(33, 31, 31);
   
   
-  
   }
   
   .tab-content{
     flex: 4;
-  } */
-  
-  .tabs .tabs-pane {
-    margin: 1%;
-    padding-bottom: 0.9%;
-    cursor: pointer;
-    list-style: none;
   }
-  
-  .tabs .tabs-pane span {
-    color: cadetblue;
-    font-size: 1.5rem;
-  }
-  
-  .tabs .tabs-pane.active {
-    border-bottom: 1px solid cadetblue;
-  }
-  .tabs ul {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-  }
+
+ 

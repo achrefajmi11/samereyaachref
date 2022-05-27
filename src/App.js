@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import userList from "./Admin/userlist/UserList"
 import EditUser from "./Admin/user/EditUser";
 import Cordonnee from "./Admin/Cordonee/Cordonnee";
+import listecompte from "./rh/listecompte";
 import HistoriquedemandeList from "./Admin/Historiquedemande/Historiquedemande";
 
 import "./App.css";
@@ -53,7 +54,7 @@ function App() {
     e.preventDefault();
     const { matricule, password } = e.target.elements;
     console.log(matricule.value, password.value)
-    await axios.post("http://localhost:3005/login", {
+    await axios.post("http://localhost:3006/login", {
       matricule: matricule.value,
       password: password.value
     }).then(res => {
@@ -77,7 +78,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:3005/users")
+    axios.get("http://localhost:3006/users")
       .then(res => {
         console.log(res)
       })
@@ -105,7 +106,7 @@ function App() {
                             <Route exact path="/rh/HistoriquedemandeList" component={HistoriquedemandeList} />
                             <Route exact path="/rh/userList" component={userList} />
                             <Route exact path="/rh/EditUser" component={EditUser} />
-                            <Route exact path="/admin/userList" component={userList} />
+                            <Route exact path="/admin/userList" component={listecompte} />
                          
                           </div>
                       </div>

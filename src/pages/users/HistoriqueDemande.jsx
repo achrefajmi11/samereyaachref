@@ -15,7 +15,7 @@ const HistoriqueDemande = (props) => {
     const token = localStorage.getItem('token');
     const id = parseJwt(token).id;
 
-    const response = await axios.get(`http://localhost:3005/userConges/${id}`)
+    const response = await axios.get(`http://localhost:3006/userConges/${id}`)
     if (response.status === 200) {
       setData(response.data);
       console.log("data user conge =>", response.data);
@@ -29,7 +29,7 @@ const HistoriqueDemande = (props) => {
   return (
     <>
       <div className={"container-table"}>
-        <div class="table-responsive" >
+        <div class="table-responsive" align="center">
           <table class="table" >
 
             <thead>

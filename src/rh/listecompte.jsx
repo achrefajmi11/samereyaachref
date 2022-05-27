@@ -2,7 +2,7 @@ import React from 'react';
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./userList.css";    
+//import "./userList.css";    
 
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export default function List() {
   
   
     useEffect(() => {
-      axios.get(`http://localhost:3005/users`).then((res) => {
+      axios.get(`http://localhost:3006/users`).then((res) => {
         setData(res.data);
       });
     }, []);

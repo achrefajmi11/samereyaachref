@@ -73,6 +73,12 @@ export default function Sidebar({role}) {
                 Ajouter un employé
               </li>
             </Link>
+            <Link to="/admin/userList" className="link">
+              <li className="sidebarListItem">
+                Liste des Comptes
+              </li>
+            </Link>
+            
           </ul>
         </div>
         <div className="sidebarMenu">

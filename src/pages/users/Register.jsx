@@ -8,7 +8,7 @@ const Register = (props) => {
    e.preventDefault() ;
    const  {username , fullName ,matricule ,Password}=e.target.elements;
    console.log(username.value,fullName.value,matricule.value,Password.value)
-   axios.post("http://localhost:3005/register",{
+   axios.post("http://localhost:3006/register",{
      username :username.value,
      fullName: fullName.value,
      matricule: matricule.value,

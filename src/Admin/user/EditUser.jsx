@@ -8,13 +8,16 @@ const Register = (props) => {
     console.log(props)})
   const register = (e)=>{
    e.preventDefault() ;
-   const  {username , fullName ,matricule ,Password}=e.target.elements;
-   console.log(username.value,fullName.value,matricule.value,Password.value)
-   axios.post("http://localhost:3005/register",{
+   const  {username , fullName ,matricule ,Age,Anicienneté}=e.target.elements;
+   console.log(username.value,fullName.value,matricule.value,Anicienneté.value,Age.value)
+   axios.post("http://localhost:3006/employe",{
      username :username.value,
      fullName: fullName.value,
      matricule: matricule.value,
-     password: Password.value 
+     Anicienneté: Anicienneté.value ,
+     Age: Age.value 
+
+
 
    }).then(res=>{
     props.history.push("/userList")
@@ -23,9 +26,9 @@ const Register = (props) => {
   }
   return (
     <div className="container-table">
-      <form className="col-12 col-md-10 myMargin myBorder"  onSubmit={register}>
+      <form className="col-12 col-md-10 myMargin "  onSubmit={register}>
         <fieldset>
-          <legend className="eya2" >Ajouter un employé </legend>
+          <p className="eya2" align="center" >Ajouter un employé </p>
           <div className="achref1" >
             <label htmlFor="fullName">fullName</label>
             <input
@@ -54,8 +57,25 @@ const Register = (props) => {
             name="matricule"
               type="INT"
               className="form-control"
-              
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="Age">Age</label>
+            <input
+            id="Age"
+            name="Age"
+              type="INT"
+              className="form-control"
+              />
+          </div>
+          <div className="form-group">
+            <label htmlFor="Anicienneté">Anicienneté</label>
+            <input
+            id="Anicienneté"
+            name="Anicienneté"
+              type="INT"
+              className="form-control"
+          />
           </div>
           <button type="submit" className="btn btn-outline-primary">
             Save
