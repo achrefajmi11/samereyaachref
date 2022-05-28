@@ -34,9 +34,7 @@ const Navbar = ({ logout, token }) => {
                           : 
                       <>
                         <li className="nav-item">
-                          <NavLink className="nav-link text-white" to="/account">
-                            Mon compte
-                          </NavLink>
+                      
                         </li>
                         
                         <li className="nav-item">

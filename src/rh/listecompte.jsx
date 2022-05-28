@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 //import "./userList.css";    
 
-import { Link } from "react-router-dom";
+import { Link ,NavLink } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
@@ -69,7 +69,11 @@ export default function List() {
             
             <td>
            
-                <button className="btn btn-edit">Edit</button>
+            <button  className="btn btn-edit" align="center">
+          <NavLink className="nav-link text-white" to="/rh/modification">
+                            Edit
+                          </NavLink>
+                          </button>
              
                 <Link
                             onClick={()=>deleteUser(data.id)}

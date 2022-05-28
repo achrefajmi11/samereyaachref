@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const Demande = (props) => {
   const [token, setToken] = useState(null);
-
+  const [jrsExceptionnel, setJrsExceptionnel] = useState(0);
 
   useEffect(()=>{
     setToken(localStorage.getItem("token"));
@@ -12,6 +12,7 @@ const Demande = (props) => {
   },[])
 
   const demande = (e)=>{
+    
    e.preventDefault() ;
    const  {Date_debut , Date_fin ,nombre_jrs ,type_Conge, }=e.target.elements;
    console.log(Date_debut.value,Date_fin.value,nombre_jrs.value,type_Conge.value)

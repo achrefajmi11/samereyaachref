@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { NavLink, useHistory } from "react-router-dom";
 const Login = ({login,error}) => {
   
 
@@ -36,8 +36,11 @@ const Login = ({login,error}) => {
   <button type="btn-outline-primary" className="btn-outline-primary " align="center">
             Se connecter
           </button>
-         
-          
+          <button type="btn-outline-primary" className="btn-outline " align="center">
+          <NavLink className="nav-link text-white" to="/register">
+                          Register
+                          </NavLink>
+          </button>
       </form>
     </div>
     </form>

@@ -7,7 +7,7 @@ import EditUser from "./Admin/user/EditUser";
 import Cordonnee from "./Admin/Cordonee/Cordonnee";
 import listecompte from "./rh/listecompte";
 import HistoriquedemandeList from "./Admin/Historiquedemande/Historiquedemande";
-
+import Modification from "./Admin/userlist/modification";
 import "./App.css";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import Account from "./pages/users/Account";
@@ -109,6 +109,8 @@ function App() {
                             <Route exact path="/rh/HistoriquedemandeList" component={HistoriquedemandeList} />
                             <Route exact path="/rh/userList" component={userList} />
                             <Route exact path="/rh/EditUser" component={EditUser} />
+                            <Route exact path="/rh/modification" component={Modification} />
+                            <Route exact path="/rh/modificaion" component={userList} />
                             <Route exact path="/admin/userList" component={listecompte} />
                          
                           </div>
