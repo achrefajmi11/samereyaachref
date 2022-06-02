@@ -27,11 +27,12 @@ export default function Sidebar({role}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-
+          <Link to="/rh/dashbord" className="link">
             <li className="sidebarListItem active">
               <BarChart className="sidebarIcon" />
               Reports
             </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -73,12 +74,7 @@ export default function Sidebar({role}) {
                 Ajouter un employé
               </li>
             </Link>
-            <Link to="/admin/userList" className="link">
-              <li className="sidebarListItem">
-                Liste des Comptes
-              </li>
-            </Link>
-            
+         
           </ul>
         </div>
         <div className="sidebarMenu">

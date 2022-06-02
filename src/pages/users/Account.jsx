@@ -14,9 +14,9 @@ const Account = (props) => {
 
   const [tabs] = useState([
     { tabKey: "profile", tabTitle: "Mon profile" },
-    { tabKey: "demande", tabTitle: "Demande exeptionnel" },
-    { tabKey: "demandeannuel", tabTitle: "Demande annuel" },
-    { tabKey: "historique demande", tabTitle: "Historique Demande"},
+    { tabKey: "demande", tabTitle: "Demande Congé Exceptionnel" },
+    { tabKey: "demandeannuel", tabTitle: "Demande Congé Annuel" },
+    { tabKey: "historique demande", tabTitle: "Historique des Demandes"},
  
   ]);
 

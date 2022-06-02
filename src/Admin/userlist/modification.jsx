@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { } from "react";
 import parseJwt from '../../services/parseJWT';
 //import "./profile.css";
-const Profile = (props) => {
+const EditUser = (props) => {
   const [user, setUser] = useState(null);
 
 
@@ -18,10 +18,10 @@ const Profile = (props) => {
 
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const id = parseJwt(token).id;
-    console.log('id => ', id);
-    axios.get(`http://localhost:3006/user/${id}`)
+    console.log("props => ♥ ",props);
+
+    console.log('id => ', props.userId);
+    axios.get(`http://localhost:3006/user/${props.location.userId}`)
       .then(res => {
         console.log("tag => ", res.data);
         setUser(res.data)
@@ -35,10 +35,9 @@ const Profile = (props) => {
   const update = (e) => {
     e.preventDefault();
     const { username, fullName, matricule , Password} = e.target.elements;
-    const token = localStorage.getItem('token');
-    const id = parseJwt(token).id;
+
     
-    axios.patch((`http://localhost:3006/user/${id}`), {
+    axios.patch((`http://localhost:3006/user/${props.location.userId  }`), {
       username: username.value,
       fullName: fullName.value,
       matricule: matricule.value,
@@ -123,4 +122,4 @@ const Profile = (props) => {
     </div>
   );
 };
-export default Profile;
+export default EditUser;

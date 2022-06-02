@@ -20,10 +20,13 @@ const Demandeannuel = (props) => {
      Date_retour: Date_fin.value,
      nombre_jrs: nombre_jrs.value,
      
+     
      userId:jwtDecode(token).id,
    }).then(res=>{
     props.history.push("/account");
   })
+
+  
   .catch(error=>console.log(error))
   }
   return (
@@ -69,6 +72,7 @@ const Demandeannuel = (props) => {
           <button type="submit" className="btn btn-outline-primary">
             CREER LA DEMANDE
           </button>
+          
           <button type="submit" className="btn btn-outline-primary">
             ANNULER
           </button>

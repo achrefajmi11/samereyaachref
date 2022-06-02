@@ -34,17 +34,18 @@ const HistoriqueDemande = (props) => {
   return (
     <>
       <div className={"container-table"}>
+  
         <div class="table-responsive" align="center">
+        <p> LISTE DES DEMANDES DES CONGES ANNUEL </p>
           <table class="table" >
 
             <thead>
               <tr>
                 <th scope="col">Date demande</th>
-                <th scope="col">Matricule</th>
-                <th scope="col">Type congé</th>
-                <th scope="col">Date de début</th>
+               <th scope="col">Date de début</th>
                 <th scope="col">Date de fin</th>
                 <th scope="col">Etat de demande</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -53,8 +54,7 @@ const HistoriqueDemande = (props) => {
                 return (
                   <tr key={index}>
                     <td> {moment(item.createdAt).format("D/M/Y")} </td>
-                    <td>{item.user?.fullName || item.user?.matricule}</td>
-                    <td>{item.type_Conge}</td>
+                 
                     <td>{moment(item.Date_debut).format("D/M/Y")}</td>
                     <td>{moment(item.Date_retour).format("D/M/Y")}</td>
                     <td>
@@ -81,16 +81,17 @@ const HistoriqueDemande = (props) => {
       </div>
       <div className={"container-table"}>
         <div class="table-responsive" align="center">
+        <p> LISTE DES DEMANDES DES CONGES EXCEPTIONNEL </p>
           <table class="table" >
 
             <thead>
               <tr>
                 <th scope="col">Date demande</th>
-                <th scope="col">Matricule</th>
-                
+                <th scope="col">Type congé</th>
                 <th scope="col">Date de début</th>
                 <th scope="col">Date de fin</th>
                 <th scope="col">Etat de demande</th>
+
               </tr>
             </thead>
             <tbody>
@@ -99,8 +100,7 @@ const HistoriqueDemande = (props) => {
                 return (
                   <tr key={index}>
                     <td> {moment(item.createdAt).format("D/M/Y")} </td>
-                    <td>{item.user?.fullName || item.user?.matricule}</td>
-                    
+                    <td>{item.type_Conge}</td>
                     <td>{moment(item.Date_debut).format("D/M/Y")}</td>
                     <td>{moment(item.Date_retour).format("D/M/Y")}</td>
                     <td>
@@ -118,6 +118,11 @@ const HistoriqueDemande = (props) => {
                       </span>
 
                     </td>
+                    
+                    
+              
+                    
+                 
                   </tr>
                 );
               })}

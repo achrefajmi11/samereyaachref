@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./Admin/sidebar/sidebar";
 
 import Navbar from "./components/Navbar";
-import userList from "./Admin/userlist/UserList"
+import userList from "./Admin/userlist/UserList";
+import Dashbord from "./Admin/userlist/Dashbord.";
 import EditUser from "./Admin/user/EditUser";
 import Cordonnee from "./Admin/Cordonee/Cordonnee";
 import listecompte from "./rh/listecompte";
@@ -67,7 +68,7 @@ function App() {
       console.log(parseJwt(res.data.token).role)
       setToken(res.data.token)
       if (parseJwt(res.data.token).role === "rh") {
-        history.push("/cordonnee");
+        history.push("/rh/cordonnee");
       }
       else if (parseJwt(res.data.token).role === "user") {
         history.push("/account")
@@ -95,6 +96,7 @@ function App() {
               <>
                     <Navbar logout={logout}
                       token={token}
+                      role={role}
                     />
                     <div className="main-container">
                       {role == "rh" ||  role == "admin"  ? <Sidebar  role={role}/> : null}
@@ -112,7 +114,8 @@ function App() {
                             <Route exact path="/rh/modification" component={Modification} />
                             <Route exact path="/rh/modificaion" component={userList} />
                             <Route exact path="/admin/userList" component={listecompte} />
-                         
+                            <Route exact path="/rh/dashbord" component={Dashbord} />
+                             
                           </div>
                       </div>
                     </div>  
@@ -121,8 +124,8 @@ function App() {
                 <>
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={() => <Login login={login} error={error} ></Login>} />
-                  <Route  exact path="/" >
-                    <p>  404 page !  </p>
+                  <Route  exact path="/" component={Homepage} >
+               
                   </Route>
                 </>   
           }

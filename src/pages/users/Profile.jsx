@@ -16,10 +16,10 @@ const Profile = (props) => {
     const response = await axios.get(`http://localhost:3006/userConges/${id}`)
     const responseExceptionnel = await axios.get(`http://localhost:3006/userCongess/${id}`)
     if (response.status === 200 && responseExceptionnel.status === 200) {
-      const newJrs = response.data.reduce((acc, item)=>{
+      const newJrs = response.data.filter(v => v.status == 1 ).reduce((acc, item)=>{
          return acc + item.nombre_jrs
       },0)
-      const newJrsExceptionnel = responseExceptionnel.data.reduce((acc, item)=>{
+      const newJrsExceptionnel = responseExceptionnel.data.filter(v => v.status == 1 ).reduce((acc, item)=>{
         return acc + item.nombre_jrs
      },0)
       setJrs(newJrs);
@@ -70,7 +70,7 @@ const Profile = (props) => {
                   <div className="userShowTop"></div>
                   <div className="tab-content">
                     <fieldset className="sss">
-                      <p className="ajou">congé details: </p>
+                      <p className="ajou">Détails Congé Annuel: </p>
                       <span className="aa">Solde congé annuel : 21 jrs</span>
                       <br/>
                       <span className="aa">Solde congé utilisé : {jrs} </span>
@@ -84,8 +84,8 @@ const Profile = (props) => {
 
                   <div className="tab-content">
                     <fieldset className="sss">
-                      <p className="ajou">congé details: </p>
-                      <span className="aa">Solde congé exeptionnel : 10 jrs</span>
+                      <p className="ajou">Details Congé Exceptionnel: </p>
+                      <span className="aa">Solde congé exceptionnel : 10 jrs</span>
                       <br/>
                       <span className="aa">Solde congé utilisé : {jrsExceptionnel} </span>
                       <div className="userShowInfo">

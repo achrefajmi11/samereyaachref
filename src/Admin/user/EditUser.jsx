@@ -1,88 +1,87 @@
-
 import axios from "axios";
 import React, { useEffect } from "react";
 
 const Register = (props) => {
-
   useEffect(()=>{
     console.log(props)})
   const register = (e)=>{
    e.preventDefault() ;
-   const  {username , fullName ,matricule ,Age,Anicienneté}=e.target.elements;
-   console.log(username.value,fullName.value,matricule.value,Anicienneté.value,Age.value)
-   axios.post("http://localhost:3006/employe",{
+   const  {username , fullName ,matricule ,Password}=e.target.elements;
+   console.log(username.value,fullName.value,matricule.value,Password.value)
+   axios.post("http://localhost:3006/register",{
      username :username.value,
      fullName: fullName.value,
      matricule: matricule.value,
-     Anicienneté: Anicienneté.value ,
-     Age: Age.value 
-
-
+     password: Password.value 
 
    }).then(res=>{
-    props.history.push("/userList")
+    props.history.push("/login")
   })
   .catch(error=>console.log(error))
   }
   return (
-    <div className="container-table">
-      <form className="col-12 col-md-10 myMargin "  onSubmit={register}>
-        <fieldset>
-          <p className="eya2" align="center" >Ajouter un employé </p>
-          <div className="achref1" >
+
+
+    <form className="app1" align="center"> 
+    <div className="form">
+  <form className="contact-us" align="center" onSubmit={register}>
+        
+
+        
+  <legend className="eya"> Ajouter Compte</legend>
+         
+          <div className="contact-us"align="center"> 
             <label htmlFor="fullName">fullName</label>
             <input
             id="fullName"
             name="fullName"
               type="text"
-              className="form-control"
-              
+              className="form-control" align="center"
+              placeholder="fullName"
+              required
             
             />
           </div>
-          <div className="form-group">
+          <div className="contact-us" align="center">
             <label htmlFor="username">username</label>
             <input
             id="username"
             name="username"
               type="text"
-              className="form-control"
-              
+              className="form-control" align="center"
+              placeholder="username"
+              required
             />
           </div>
-          <div className="form-group">
+          <div className="contact-us" align="center">
             <label htmlFor="matricule">matricule</label>
             <input
             id="matricule"
             name="matricule"
               type="INT"
-              className="form-control"
+              className="form-control" align="center"
+              placeholder="matricule"
+              required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="Age">Age</label>
+          <div className="contact-us" align="center">
+            <label htmlFor="password">Password</label>
             <input
-            id="Age"
-            name="Age"
-              type="INT"
-              className="form-control"
-              />
+            id="Password"
+            name="Password"
+              type="password"
+              className="form-control" align="center"
+              placeholder="Password"
+              required
+            />
           </div>
-          <div className="form-group">
-            <label htmlFor="Anicienneté">Anicienneté</label>
-            <input
-            id="Anicienneté"
-            name="Anicienneté"
-              type="INT"
-              className="form-control"
-          />
-          </div>
-          <button type="submit" className="btn btn-outline-primary">
+          <button type="submit" className="btn-outline-primary " align="center">
             Save
           </button>
-        </fieldset>
+        
       </form>
     </div>
+    </form>
   );
 };
 

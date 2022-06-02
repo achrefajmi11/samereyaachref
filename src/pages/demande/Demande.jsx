@@ -23,7 +23,7 @@ const Demande = (props) => {
      type_Conge: type_Conge.value ,
      userId:jwtDecode(token).id,
    }).then(res=>{
-    props.history.push("/account");
+    props.history.push("/rh/HistoriqueDemande");
   })
   .catch(error=>console.log(error))
   }

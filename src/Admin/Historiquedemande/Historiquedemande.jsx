@@ -55,16 +55,18 @@ export default function HistoriquedemandeList() {
 
   return (
     <div className={"container-table"}>
+          
       <div className={"sub-container"}>
+      <p > LISTE DES DEMANDES DES CONGES ANNUEL</p>
         <table className="styled-table">
 
           <thead>
             <tr>
               <th style={{ textAlign: "Center" }}>employé</th>
-              <th style={{ textAlign: "Center" }}>type_Conge</th>
-              <th style={{ textAlign: "Center" }}>date_debut</th>
-              <th style={{ textAlign: "Center" }}>date_retour</th>
-              <th style={{ textAlign: "Center" }}>nombre_jrs</th>
+              <th style={{ textAlign: "Center" }}> jours utilisé </th>
+              <th style={{ textAlign: "Center" }}>date debut</th>
+              <th style={{ textAlign: "Center" }}>date retour</th>
+              <th style={{ textAlign: "Center" }}>nombre jrs</th>
               <th style={{ textAlign: "Center" }}>status</th>
 
             </tr>
@@ -72,11 +74,10 @@ export default function HistoriquedemandeList() {
           
           <tbody>
             {data && data.map((item, index) => {
-
               return (
                 <tr key={index}>
                   <td> {item.user?.fullName || item.user?.matricule} </td>
-                  <td>{item.type_Conge}</td>
+                  <td> {item.usedDays} </td>
                   <td>{moment(item.Date_debut).format("D/M/Y")}</td>
                   <td>{moment(item.Date_retour).format("D/M/Y")}</td>
                   <td>{item.nombre_jrs}</td>
@@ -87,9 +88,7 @@ export default function HistoriquedemandeList() {
                           <button className="btn btn-edit"
                             onClick={() => updateStatus("1", item.id_Conge)}
                           >Accepter</button>
-
                           <button className="btn btn-delete" onClick={() => updateStatus("-1", item.id_Conge)} >refuser</button>
-
                         </>
                         : item.status == "1" ? <p> accepted !  </p> : <p> refuser !  </p>
                     }
@@ -97,18 +96,21 @@ export default function HistoriquedemandeList() {
                   </td>
                 </tr>
               );
-            })}
+            }).reverse()}
           </tbody>
         </table>
+        <br></br>
       </div>
-
+<br></br>
 
       <div className={"sub-container"}>
+      <p> LISTE DES DEMANDES DES CONGES EXCEPTIONNEL </p>
         <table className="styled-table">
 
           <thead>
             <tr>
               <th style={{ textAlign: "Center" }}>employé</th>
+              <th style={{ textAlign: "Center" }}> jours utilisé </th>
               <th style={{ textAlign: "Center" }}>type_Conge</th>
               <th style={{ textAlign: "Center" }}>date_debut</th>
               <th style={{ textAlign: "Center" }}>date_retour</th>
@@ -124,6 +126,7 @@ export default function HistoriquedemandeList() {
               return (
                 <tr key={index}>
                   <td> {item.user?.fullName || item.user?.matricule} </td>
+                  <td>{item.usedDays}</td>
                   <td>{item.type_Conge}</td>
                   <td>{moment(item.Date_debut).format("D/M/Y")}</td>
                   <td>{moment(item.Date_retour).format("D/M/Y")}</td>
@@ -145,9 +148,10 @@ export default function HistoriquedemandeList() {
                   </td>
                 </tr>
               );
-            })}
+            }).reverse()}
           </tbody>
         </table>
+        <br></br>
       </div>
 
 
